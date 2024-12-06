@@ -9,6 +9,10 @@ productos = {
     2: {"nombre": "Producto 2", "precio": 200, "stock": 5}
 }
 
+@catalogo_bp.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "Welcome to the Catalog API!"})
+
 @catalogo_bp.route('/productos', methods=['GET'])
 @cache.cached(timeout=60)
 def obtener_productos():
